@@ -48,7 +48,7 @@
 - Using commands inside the terminal, Find out what operating system you are running
 - Find where the system log (syslog) is in Linux. View the file once found.
 - create new user named "chris" with bash as default shell
-- create new group named "devops" and add "chris" to it
+- create new group named "docker" and add "chris" to it
 
 ```bash
 cd /

@@ -906,7 +906,7 @@ sudo unshare --pid --fork sh
 # view process heirarchy (in second terminal)
 ps fa
 
-# the fork version is a chile of unshare
+# the fork version is a child of unshare
 
 # from the first terminal, run ps
 ps

@@ -11,7 +11,7 @@
 - CPU is running one application at a time (dual core or quad core)
 - Storage is the files stored in directories
 - Operating system has a kernel which manages the CPU, RAM, Storage
-- Variation of the kernel is the distro (ubutnu, debian, redhat, fedora, etc.)
+- Variation of the kernel is the distro (ubuntu, debian, redhat, fedora, etc.)
 - POSIX
 - GNU/Linux
 - NOTE: you don't interact with these regularly, the package manager or executable will automatically store files in various locations for you
@@ -30,7 +30,7 @@
 /var/log # logs are stored here usually for 30 days
 /var/log/syslog # system logs
 /var/cache # cached data from programs
-/opt # programs that install everything in one direcotry (not separated in /bin and /lib)
+/opt # programs that install everything in one directory (not separated in /bin and /lib)
 /etc # system wide configurations
 /etc/fstab # controls how different filesystems are treated each time they are introduced to a system
 /etc/hosts # used to translate hostnames to IP-addresses. 
@@ -569,7 +569,7 @@ sudo systemctl restart systemd-journald
 ############### GIT #####################################
 #########################################################
 
-# Configuring user information used across all local repositories
+# Configuring user information used across all the local repositories
 git config --global user.name “[firstname lastname]”
 
 # set an email address that will be associated with each history marker
@@ -750,7 +750,7 @@ git status
 #### CHALLENGE 5
 
 - Create a new cgroup, using cgroups limit the memory allowed for a container
-- create a new namespace in UTS and PID. The the root filesystem for the system.
+- create a new namespace in UTS and PID. The root filesystem for the system.
 
 ```bash
 
@@ -792,7 +792,7 @@ diff before.memory after.memory
 cd /sys/fs/cgroup/memory/
 ls system.slice/docker-3076b152051a7543f4724f8950a55f84828387e30170f08e3804c03936566799.scope/
 
-# from inside the container, the list of its own cgroups is aviailble from the /proc directory
+# from inside the container, the list of its own cgroups is available from the /proc directory
 docker exec -it nginx bash
 # from inside run 'cat /proc/$$/cgroup'
 
@@ -835,7 +835,7 @@ cat memory.limit_in_bytes
 # assign PID to cgroup
 echo 46981 > cgroup.procs
 
-# cat out what memory cgroup is assinged to that process
+# cat out what memory cgroup is assigned to that process
 cat /proc/46981/cgroup | grep memory
 
 ######################################################
@@ -890,9 +890,9 @@ sudo unshare --pid sh
 # run 'whoami'
 # run 'ls'
 
-# this did not work because it created a new PID with every command (following the process heirarchy)
+# this did not work because it created a new PID with every command (following the process hierarchy)
 
-# view process heirarchy by opening a new tab (second terminal) while the unshare cmd is running in the first
+# view process hierarchy by opening a new tab (second terminal) while the unshare cmd is running in the first
 ps fa
 
 # the sh process is a child of the sudo process
@@ -903,7 +903,7 @@ sudo unshare --pid --fork sh
 
 # no problem running the command multiple times
 
-# view process heirarchy (in second terminal)
+# view process hierarchy (in second terminal)
 ps fa
 
 # the fork version is a child of unshare
@@ -912,12 +912,12 @@ ps fa
 ps
 ps -eaf
 
-# still showing processes on the entire host because it reads virtual files in /proc
+# still showing processes on the entire host because it reads the virtual files in /proc
 
 # look at the /proc dir to see why
 ls /proc
 
-# every number refererences a different PID
+# every number references a different PID
 # /proc/<pid>/exe is a symbolic link to the executable
 ps
 ls /proc/32440
@@ -1010,7 +1010,7 @@ docker container --help
 
 docker container rm <container-id> <container-id> <container-ID> # 3 diff containers
 
-# if one container is running, you'll get error
+# if one container is running,then you'll get error
 
 docker container ls
 
@@ -1140,7 +1140,7 @@ docker image ls
 #### CHALLENGE 6
 
 - Run two containers together, one uses the image for apache and the other uses the image for nginx. stop and remove containers after.
-- Run a container from the mysql image and use the environment variable on startup to set a db password. Retreive the password from the logs
+- Run a container from the mysql image and use the environment variable on startup to set a db password. Retrieve the password from the logs
 - Get a bash shell to a container using the image centos:7. update the package manager. stop the container when you exit the bash shell.
 - Run a container with mongo image. Get the running process ID for a container. Compare that PID to the PID on the local workstation. 
 
@@ -1216,7 +1216,7 @@ docker image inspect nginx
 
 docker image tag --help
 
-# tag an image and uplaod it to dockerhub
+# tag an image and upload it to dockerhub
 
 docker pull mysql/mysql-server
 
@@ -1441,11 +1441,11 @@ docker container inspect --format '{{ .NetworkSettings.IPAddress }}' proxy
 
 
 
-docker network inspect bridge # list containers attached to this network (bridge network)
+docker network inspect bridge # list the containers attached to this network (bridge network)
 
-docker network ls # host network to attach directly to host
+docker network ls # host network to attach directly to the host
 
-docker network create my_net # create new virtual network using bridge driver
+docker network create my_net # create a new virtual network using bridge driver
 
 docker network ls # uses bridge driver
 
@@ -1457,7 +1457,7 @@ docker network --help
 
 docker network connect my_net proxy # add a nic to running container named "webhost"
 
-docker container inspect proxy # view new nic on container for my_network network
+docker container inspect proxy # view a new nic on container for my_network network
 
 docker network ls
 
@@ -1483,7 +1483,7 @@ docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=yes mysql
 
 docker container ls
 
-docker container inspect mysql # look for volume under mounts
+docker container inspect mysql # look for the volume under mounts
 
 # it's mounted to /var/lib/docker
 
@@ -1748,9 +1748,9 @@ docker compose down
 
 
 
-This is intended to be a few hours of workshop where the expectation is to teach linux required for devops - basics commands etc and then moving to VMs' then moving to Docker and then explaing about dokcer , what it is container, installation, main commands, volumes, dockerfile, docker-compose, dockerhub, docker registry,
+This is intended to be a few hours of workshop where the expectation is to teach linux required for devops - basics commands,etc and then moving to VMs' then moving to Docker and then explaining about docker , what is a container, installation, main commands, volumes, dockerfile, docker-compose, dockerhub, docker registry,
 
-Yeah so basically we need to asume that the attendees have no prior knowledge and you make them understand in detail
+Yeah so basically we need to assume that the attendees have no prior knowledge and need to make them understand in detail
 
 when you reach the section on how containers work you can refer this video that I made - https://youtu.be/buHPsFgpsgU
 
@@ -1758,12 +1758,12 @@ similar you can find on dockerfile examples.
 
 Docker volume and security is missing which is part of docker 101 
 
-Now there is no limit to the timings tbh so it totally depends on you which sections you think you can fast forward and which ones you can explain a bit well. I would say minimum 3 hours would be required as docker itself is a huge topic.
+Now there is no limit to the timings to be honest, so it totally depends on you which sections you think you can fast forward and which ones you can explain a bit well. I would say minimum 3 hours would be required as docker itself is a huge topic.
 
 You can see this all needs to be covered for docker:
 https://youtube.com/playlist?list=PL5uLNcv9SibBZj30yqG01a7A4_MXSyGK3
 
-1 hr for linux and git  2 hour for docker IMO 
+1 hr for linux and git , 2 hour for docker in my opinion 
 If I were you I would skip shell scirpt
 
 https://iximiuz.com/en/posts/container-learning-path/

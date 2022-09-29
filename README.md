@@ -228,7 +228,6 @@ printenv
 
 #### CHALLENGE 2
 - change the prompt for your user to "MyNewPrompt $ "
-- 
 
 ```bash
 # change prompt

@@ -220,8 +220,11 @@ APP_VERSION=v2
 env
 printenv
 
+# output the primary architecture of Debian and derivatives
+dpkg --print-architecture 
 
-
+# output the primary architecture on RPM-based systems
+rpm --eval '%{_arch}' 
 
 
 ```

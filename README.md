@@ -117,6 +117,8 @@ sudo usermod -aG docker $USER
 groups chris
 cat /etc/group
 
+# deleting user
+userdel -r USERNAME
 ```
 
 

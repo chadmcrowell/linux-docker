@@ -12,7 +12,7 @@
 - Storage is the files stored in directories
 - Operating system has a kernel which manages the CPU, RAM, Storage
 - Variation of the kernel is the distro (ubuntu, debian, redhat, fedora, etc.)
-- POSIX
+- POSIX (Portable Operating System Interface)
 - GNU/Linux
 - NOTE: you don't interact with these regularly, the package manager or executable will automatically store files in various locations for you
 - There are hidden files that you don't see (start with a .)
